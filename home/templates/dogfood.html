@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <title>Dog Food Categories</title>
+</head>
+<body>
+    <!-- header section starts -->
+    <header>
+        <div id="menu" class="fas fa-bars"></div>
+        <a href="{% url 'index' %}" class="logo"><i class="fa-solid fa-dog"></i> GentlePaws </a>
+        <nav class="navbar">
+            <a href="{% url 'index' %}#home">home</a>
+            <a href="{% url 'index' %}#category">category</a>
+            <a href="{% url 'index' %}#featured">features</a>
+            <a href="{% url 'index' %}#products">products</a>
+            <a href="{% url 'index' %}#offer">offers</a>
+            <a href="{% url 'index' %}#contact">contact</a>
+        </nav>
+        <div class="icons">
+            <i class="fas fa-search" id="search-icon"></i>
+            <a href="#" class="fas fa-heart"></a>
+            <a href="checkout.html" class="fas fa-shopping-cart"></a>
+        </div>
+        <form action="" id="search-box">
+            <input type="search" id="search" placeholder="Search at GentlePaws...">
+            <label for="search" class="fas fa-search"></label>
+        </form>
+    </header>
+    <!-- header section ends -->
+
+    <!-- dog food categories section starts -->
+    <section class="category" id="category">
+        <h1 class="heading"> <i class="fas fa-paw"></i> Dog Food Categories <i class="fas fa-paw"></i></h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="{% static 'assets/img/dogfood1.jpeg' %}" alt="Dry Dog Food">
+                <h3>Dry Dog Food</h3>
+                <a href="#" class="btn">Buy now</a>
+            </div>
+            <div class="box">
+                <img src="{% static 'assets/img/wetfood.jpg' %}" alt="Wet Dog Food">
+                <h3>Wet Dog Food</h3>
+                <a href="#" class="btn">Buy now</a>
+            </div>
+            <div class="box">
+                <img src="{% static 'assets/img/grainfreefood.jpeg' %}" alt="Grain-Free Dog Food">
+                <h3>Grain-Free Dog Food</h3>
+                <a href="#" class="btn">Buy now</a>
+            </div>
+            <div class="box">
+                <img src="{% static 'assets/img/organicfood.jpeg' %}" alt="Organic Dog Food">
+                <h3>Organic Dog Food</h3>
+                <a href="#" class="btn">Buy now</a>
+            </div>
+        </div>
+    </section>
+    <!-- dog food categories section ends -->
+
+    <!-- footer section
+    <section class="footer">
+        <div class="share">
+            <a href="#" class="btn"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="btn"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="btn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="btn"><i class="fab fa-instagram"></i></a>
+        </div>
+        <h1 class="credit"> created by <span> Your Name </span> | all rights reserved! </h1>
+    </section> -->
+
+    <!-- JS files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
