@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>GentlePaws - Checkout</title>
+    <!-- css file link -->
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+</head>
+<body>
+
+    <!-- header section starts -->
+    <header>
+        <div id="menu" class="fas fa-bars"></div>
+        <a href="{% url 'index' %}" class="logo"><i class="fa-solid fa-dog"></i> GentlePaws </a>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#category">category</a>
+            <a href="#featured">features</a>
+            <a href="#products">products</a>
+            <a href="#offer">offers</a>
+            <a href="#contact">contact</a>
+        </nav>
+        <div class="icons">
+            <i class="fas fa-search" id="search-icon"></i>
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-shopping-cart"></a>
+        </div>
+        <form action="" id="search-box">
+            <input type="search" id="search" placeholder="Search at GentlePaws...">
+            <label for="search" class="fas fa-search"></label>          
+        </form>
+    </header>
+    <!-- header section ends -->
+
+    <!-- checkout section starts -->
+    <section class="checkout" id="checkout">
+        <h1 class="heading"> <i class="fas fa-paw"></i> Checkout <i class="fas fa-paw"></i></h1>
+        <div class="checkout-container">
+            <form action="#">
+                <div class="inputBox">
+                    <h3>Billing Address</h3>
+                    <input type="text" placeholder="Full Name">
+                    <input type="email" placeholder="Email">
+                    <input type="text" placeholder="Address">
+                    <input type="text" placeholder="City">
+                    <input type="text" placeholder="State">
+                    <input type="text" placeholder="Zip Code">
+                    <input type="text" placeholder="Country">
+                </div>
+                <div class="inputBox">
+                    <h3>Shipping Address</h3>
+                    <input type="text" placeholder="Full Name">
+                    <input type="email" placeholder="Email">
+                    <input type="text" placeholder="Address">
+                    <input type="text" placeholder="City">
+                    <input type="text" placeholder="State">
+                    <input type="text" placeholder="Zip Code">
+                    <input type="text" placeholder="Country">
+                </div>
+                <div class="inputBox">
+                    <h3>Payment</h3>
+                    <input type="text" placeholder="Name on Card">
+                    <input type="text" placeholder="Credit Card Number">
+                    <input type="text" placeholder="Exp Month">
+                    <input type="text" placeholder="Exp Year">
+                    <input type="text" placeholder="CVV">
+                </div>
+                <input type="submit" value="Place Order" class="btn">
+            </form>
+        </div>
+    </section>
+    <!-- checkout section ends -->
+
+    <!-- footer section -->
+    <section class="footer">
+        <div class="share">
+            <a href="#" class="btn"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="btn"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="btn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="btn"><i class="fab fa-instagram"></i></a>
+        </div>
+        <h1 class="credit"> created by <span> Rahul Seth, Madhav Sharma & Utkarsh Kumar </span> | © all rights reserved! </h1>
+    </section>
+    <!-- footer section ends -->
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- jquery cdn link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- custom js file link -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+</html>
