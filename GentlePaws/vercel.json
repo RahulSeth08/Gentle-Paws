@@ -1,13 +1,24 @@
 {
-    "builds": [{
-        "src": "GentlePaws/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.12" }
-    }],
+    "version": 2,
+    "builds": [
+      {
+        "src": "manage.py",
+        "use": "@vercel/python"
+      },
+      {
+        "src": "GentlePaws/static",
+        "use": "@vercel/static"
+      }
+    ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "GentlePaws/wsgi.py"
-        }
+      {
+        "src": "/static/(.*)",
+        "dest": "staticfiles/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "manage.py"
+      }
     ]
-}
+  }
+  
