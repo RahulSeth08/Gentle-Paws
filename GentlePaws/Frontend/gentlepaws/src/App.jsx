@@ -1,9 +1,21 @@
 import './App.css'
+import {Hero} from "./components/Header";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-function App() {
+function AppContent() {
   return (
-    <div>
-      
-    </div>
+    <>
+    <Routes>
+    <Route path="/" element={<Hero />} />
+    </Routes>
+    </>
   )
+}
+
+export default function App() {
+  return (
+      <Router>
+        <AppContent />
+      </Router>
+  );
 }
