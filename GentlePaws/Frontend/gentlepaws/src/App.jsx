@@ -1,12 +1,13 @@
+import React from 'react';
 import './App.css'
-import {Hero} from "./components/Header";
+import {Landing} from "../src/components/pages/Landing"
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function AppContent() {
   return (
     <>
     <Routes>
-    <Route path="/" element={<Hero />} />
+    <Route path="/" element={<Landing />} />
     </Routes>
     </>
   )
