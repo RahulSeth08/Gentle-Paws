@@ -20,7 +20,7 @@ function ProductCard({ product }) {
       <div className="p-4 bg-[#1e1e1e]">
         <h2 className="text-lg font-semibold mb-2 text-white">{product.name}</h2>
         <div className="flex justify-between items-center">
-          <p className="text-blue-500 font-bold">${product.price.toFixed(2)}</p>
+          <p className="text-gray-200 font-bold">${product.price.toFixed(2)}</p>
           <button className="bg-blue-500 hover:bg-indigo-600 text-white p-2 rounded-full transition-colors">
             <ShoppingCart className="h-5 w-5" />
           </button>
