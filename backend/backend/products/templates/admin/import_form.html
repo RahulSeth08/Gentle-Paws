@@ -1,27 +1,13 @@
 {% extends "admin/base_site.html" %}
-
 {% block content %}
-<div class="module">
-    <h1>Upload Products</h1>
-    
-    {% if messages %}
-        <ul class="messagelist">
-            {% for message in messages %}
-                <li class="{{ message.tags }}">{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
+  <div class="module">
+    <h2>Upload Products</h2>
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <p>
-            <label for="file">Select a file (Excel or JSON):</label>
-            {{ form.file }}
-        </p>
-        <button type="submit" class="button default">Upload</button>
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table>
+      <input type="submit" value="Upload">
     </form>
-
-    <br>
-    <a href="{% url 'admin:products_product_changelist' %}" class="button">Back to Products</a>
-</div>
+  </div>
 {% endblock %}

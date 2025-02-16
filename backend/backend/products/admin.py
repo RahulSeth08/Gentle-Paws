@@ -8,6 +8,11 @@ from import_export.admin import ExportMixin
 from import_export.resources import ModelResource
 from .models import Product, Category
 
+
+admin.site.site_header = "Gentle Paws"
+admin.site.site_title = "Gentle Paws Admin"
+admin.site.index_title = "Welcome to Gentle Paws Admin Panel"
+
 # Form for uploading an Excel file
 class ProductUploadForm(forms.Form):
     file = forms.FileField()
@@ -38,7 +43,7 @@ class ProductAdmin(ExportMixin, admin.ModelAdmin):
     def get_urls(self):
         urls = super().get_urls()
         custom_urls = [
-            path("upload-products/", self.admin_site.admin_view(self.upload_products), name="admin:upload-products"),
+            path("upload-products/", self.admin_site.admin_view(self.upload_products), name="upload-products"),
         ]
         return custom_urls + urls
 
