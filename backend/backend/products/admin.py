@@ -36,6 +36,14 @@ class ProductAdmin(ExportMixin, admin.ModelAdmin):
     search_fields = ['name', 'description']
     ordering = ['-created_at']
 
+    def image_display(self, obj):
+        if obj.image:
+            return f'<img src="{obj.image.url}" width="50" height="50" />'
+        return "No Image"
+
+    image_display.allow_tags = True
+    image_display.short_description = "Image"
+
     # Custom admin template with Upload button
     change_list_template = "admin/products/change_list.html"
 

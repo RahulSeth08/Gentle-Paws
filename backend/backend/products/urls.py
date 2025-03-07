@@ -1,7 +1,8 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import ProductViewSet, CategoryViewSet, ProductListView, upload_products
-
+from django.conf import settings
+from django.conf.urls.static import static
 # Using DefaultRouter for ViewSets (automatic URL generation for CRUD operations)
 router = DefaultRouter()
 router.register(r'categories', CategoryViewSet)  # API: /categories/
@@ -12,3 +13,5 @@ urlpatterns = [
     path('list/', ProductListView.as_view(), name='product-list'),  # Custom product list API
     path('upload/', upload_products, name='upload-products'),  # Upload API endpoint
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

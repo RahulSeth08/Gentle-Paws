@@ -15,6 +15,8 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     authentication_classes = [JWTAuthentication]
     permission_classes = [permissions.IsAuthenticated]
+    def get_serializer_context(self):
+        return {"request": self.request}
 
 class ProductListView(generics.ListAPIView):
     queryset = Product.objects.all()
