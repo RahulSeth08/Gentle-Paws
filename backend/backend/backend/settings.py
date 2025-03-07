@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-d1gn8w&3e3q&404v_m=w2xyp6h)y7$mf282^*k%yjr3_qys2ef'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["gentle-paws.onrender.com", "127.0.0.1"]
 
