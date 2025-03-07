@@ -52,8 +52,8 @@ const DualRangeSlider = forwardRef(
           ))}
         </SliderPrimitive.Root>
         <div className="flex justify-between w-full text-sm text-gray-300 mt-2">
-          <span>${values[0]}</span>
-          <span>${values[1]}</span>
+          <span>₹{values[0]}</span>
+          <span>₹{values[1]}</span>
         </div>
       </div>
     );

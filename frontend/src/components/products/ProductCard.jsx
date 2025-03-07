@@ -1,6 +1,9 @@
 import { ShoppingCart } from "lucide-react";
 
 function ProductCard({ product }) {
+  // Ensure that product.price is a valid number, fallback to 0 if invalid
+  const price = parseFloat(product.price) || 0;  // Ensure price is a number
+  
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-md transition-transform hover:scale-105">
       <div className="relative">
@@ -20,7 +23,9 @@ function ProductCard({ product }) {
       <div className="p-4 bg-[#1e1e1e]">
         <h2 className="text-lg font-semibold mb-2 text-white">{product.name}</h2>
         <div className="flex justify-between items-center">
-          <p className="text-gray-200 font-bold">${product.price.toFixed(2)}</p>
+          <p className="text-gray-200 font-bold">
+            ₹{price.toFixed(0)} {/* Safely use toFixed after parsing */}
+          </p>
           <button className="bg-blue-500 hover:bg-indigo-600 text-white p-2 rounded-full transition-colors">
             <ShoppingCart className="h-5 w-5" />
           </button>

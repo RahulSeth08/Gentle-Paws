@@ -47,7 +47,7 @@ function Sidebar() {
           </div>
           <div>
             <h4 className="text-sm font-medium text-gray-400 mb-2">Price Range</h4>
-            <DualRangeSlider min={0} max={100} step={1} defaultValue={[10, 90]} />
+            <DualRangeSlider min={0} max={5000} step={100} defaultValue={[100, 4000 ]} />
           </div>
         </div>
       </div>
