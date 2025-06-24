@@ -56,9 +56,6 @@ FRONTEND_URL = env('frontend', default='http://localhost:5173')
 
 CORS_ALLOWED_ORIGINS = [
     FRONTEND_URL,
-    "https://gentle-paws-web.vercel.app/"
-    "http://localhost:5173",  # Your frontend URL
-    "http://127.0.0.1:5173",
 ]
 
 
