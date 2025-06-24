@@ -1,8 +1,9 @@
 import React from "react";
 import { Dog, ShoppingCart, Menu } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "../ui/button";  // Import ShadCN Button
 import StaggeredDropDown from "./StaggeredDropDown";
+import { useCart } from '../products/CartContext';
 
 // Singleton function for smooth scrolling
 const scrollToSection = (id) => {
@@ -14,6 +15,8 @@ const scrollToSection = (id) => {
 
 export function Navbar() {
   const navigate = useNavigate();
+  const { cart } = useCart();
+  const totalItems = cart?.items?.reduce((sum, item) => sum + item.quantity, 0) || 0;
 
   // Check if the user is logged in by looking for JWT tokens in localStorage
   const isAuthenticated = Boolean(localStorage.getItem("access_token"));
@@ -77,12 +80,14 @@ export function Navbar() {
           </StaggeredDropDown>
 
           {/* Cart Button */}
-          <Button
-            onClick={() => navigate('/checkout')}
-            className="text-white bg-blue-500 hover:bg-blue-600 transition-colors duration-200 rounded-lg"
-          >
-            <ShoppingCart />
-          </Button>
+          <Link to="/checkout" className="relative">
+            <ShoppingCart size={24} />
+            {totalItems > 0 && (
+              <span className="absolute -top-1 -right-2 bg-blue-600 text-white text-xs rounded-full px-1.5 py-0.5">
+                {totalItems}
+              </span>
+            )}
+          </Link>
         </div>
       ) : (
         <div className="flex space-x-4">

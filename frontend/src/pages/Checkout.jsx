@@ -3,25 +3,12 @@ import { Button } from "../components/ui/button"; // Assuming you have a button 
 import { Label } from "../components/ui/label";
 import { Input } from "../components/ui/input";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
-import { ChevronRight, Mail, CreditCard, User } from "lucide-react";
+import { ChevronRight, Mail, CreditCard, User, Minus, Trash2 } from "lucide-react";
+import { useCart } from '../components/products/CartContext';
 
 export function Checkout() {
   const [shippingMethod, setShippingMethod] = useState("standard");
-
-  const orderSummaryItems = [
-    {
-      name: "Premium Dog Food - Large Breed",
-      description: "15 lbs",
-      price: "$49.99",
-      imgSrc: "/placeholder.svg?height=96&width=112",
-    },
-    {
-      name: "Interactive Cat Toy - Laser Pointer",
-      description: "1 unit",
-      price: "$24.99",
-      imgSrc: "/placeholder.svg?height=96&width=112",
-    },
-  ];
+  const { cart, loading, error, removeFromCart } = useCart();
 
   const shippingOptions = [
     {
@@ -29,18 +16,19 @@ export function Checkout() {
       label: "Standard Delivery",
       description: "Delivery: 2-4 Days",
       imgSrc: "/placeholder.svg?height=56&width=56",
-      price: "$5.00",
+      price: "₹5.00",
     },
     {
       value: "express",
       label: "Express Delivery",
       description: "Delivery: 1-2 Days",
       imgSrc: "/placeholder.svg?height=56&width=56",
-      price: "$15.00",
+      price: "₹15.00",
     },
   ];
 
-  const subtotal = 74.98;
+  // Calculate subtotal from cart
+  const subtotal = cart?.items?.reduce((sum, item) => sum + parseFloat(item.total_price), 0) || 0;
   const shippingCost = shippingMethod === "standard" ? 5.0 : 15.0;
   const total = subtotal + shippingCost;
 
@@ -55,20 +43,36 @@ export function Checkout() {
           </p>
 
           <div className="mt-8 space-y-3 rounded-lg border border-blue-800 bg-gray-800 p-4">
-            {orderSummaryItems.map((item, index) => (
-              <div key={index} className="flex flex-col rounded-lg bg-gray-800 sm:flex-row">
-                <img
-                  src={item.imgSrc}
-                  alt={item.name}
-                  className="m-2 h-24 w-28 rounded-md border border-blue-800 object-cover"
-                />
-                <div className="flex w-full flex-col px-4 py-4">
-                  <span className="font-semibold">{item.name}</span>
-                  <span className="text-gray-400">{item.description}</span>
-                  <p className="text-lg font-bold">{item.price}</p>
+            {loading ? (
+              <div>Loading cart...</div>
+            ) : error ? (
+              <div className="text-red-500">{error}</div>
+            ) : !cart?.items?.length ? (
+              <div>Your cart is empty.</div>
+            ) : (
+              cart.items.map((item) => (
+                <div key={item.id} className="flex flex-col rounded-lg bg-gray-800 sm:flex-row items-center">
+                  <img
+                    src={item.product_detail?.image || "/product-demo.png"}
+                    alt={item.product_detail?.name}
+                    className="m-2 h-24 w-28 rounded-md border border-blue-800 object-cover bg-gray-200"
+                    onError={e => { e.target.onerror = null; e.target.src = "/product-demo.png"; }}
+                  />
+                  <div className="flex w-full flex-col px-4 py-4">
+                    <span className="font-semibold">{item.product_detail?.name}</span>
+                    <span className="text-gray-400">Qty: {item.quantity}</span>
+                    <p className="text-lg font-bold">₹{parseFloat(item.total_price).toFixed(2)}</p>
+                  </div>
+                  <button
+                    className="ml-4 bg-red-500 hover:bg-red-600 text-white rounded-full p-2"
+                    onClick={() => removeFromCart(item.id)}
+                    aria-label="Remove from cart"
+                  >
+                    <Trash2 size={18} />
+                  </button>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
 
           <h2 className="mt-8 text-lg font-medium">Shipping Methods</h2>
@@ -180,15 +184,15 @@ export function Checkout() {
 
             <div className="mt-6 flex justify-between">
               <span className="font-semibold">Subtotal</span>
-              <span>${subtotal.toFixed(2)}</span>
+              <span>₹{subtotal.toFixed(2)}</span>
             </div>
             <div className="mt-2 flex justify-between">
               <span className="font-semibold">Shipping</span>
-              <span>${shippingCost.toFixed(2)}</span>
+              <span>₹{shippingCost.toFixed(2)}</span>
             </div>
             <div className="mt-6 flex items-center justify-between">
               <span className="text-xl font-medium">Total</span>
-              <span className="text-2xl font-medium">${total.toFixed(2)}</span>
+              <span className="text-2xl font-medium">₹{total.toFixed(2)}</span>
             </div>
 
             <Button className="mt-8 w-full rounded-md bg-blue-600 py-2 text-lg text-white">

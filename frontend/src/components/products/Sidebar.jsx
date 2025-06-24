@@ -1,7 +1,27 @@
 import { Search, Sliders } from "lucide-react";
 import { DualRangeSlider } from "./DualRangeSliderDemo";
 import { Dog } from "lucide-react";
-function Sidebar() {
+
+function Sidebar({
+  search,
+  setSearch,
+  sort,
+  setSort,
+  categories,
+  setCategories,
+  priceRange,
+  setPriceRange,
+}) {
+  const allCategories = ["Dog", "Cat", "Birds", "Rabbit"];
+
+  const handleCategoryChange = (category) => {
+    if (categories.includes(category)) {
+      setCategories(categories.filter((c) => c !== category));
+    } else {
+      setCategories([...categories, category]);
+    }
+  };
+
   return (
     <aside className="w-full lg:w-72 bg-[#1e1e1e] p-6 lg:p-8 space-y-6 shadow-md">
       <a href="/" className="flex items-center text-2xl font-semibold text-gray-200">
@@ -12,6 +32,8 @@ function Sidebar() {
           type="text"
           className="w-full pl-10 pr-4 py-2 rounded-full bg-black text-gray-400 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Search products..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
         />
         <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-500" />
       </div>
@@ -27,6 +49,8 @@ function Sidebar() {
             <select
               id="sort"
               className="w-full p-2 rounded-lg bg-black text-gray-300 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={sort}
+              onChange={e => setSort(e.target.value)}
             >
               <option value="price-asc">Price: Low to High</option>
               <option value="price-desc">Price: High to Low</option>
@@ -37,9 +61,14 @@ function Sidebar() {
           <div>
             <h4 className="text-sm font-medium text-gray-400 mb-2">Categories</h4>
             <div className="space-y-2">
-              {["Dog", "Cat", "Birds", "Rabbit"].map((category) => (
+              {allCategories.map((category) => (
                 <label key={category} className="flex items-center">
-                  <input type="checkbox" className="form-checkbox text-gray-300 bg-gray-100 border-gray-300 rounded" />
+                  <input
+                    type="checkbox"
+                    className="form-checkbox text-gray-300 bg-gray-100 border-gray-300 rounded"
+                    checked={categories.includes(category)}
+                    onChange={() => handleCategoryChange(category)}
+                  />
                   <span className="ml-2 text-sm text-gray-200">{category}</span>
                 </label>
               ))}
@@ -47,7 +76,14 @@ function Sidebar() {
           </div>
           <div>
             <h4 className="text-sm font-medium text-gray-400 mb-2">Price Range</h4>
-            <DualRangeSlider min={0} max={5000} step={100} defaultValue={[100, 4000 ]} />
+            <DualRangeSlider
+              min={0}
+              max={5000}
+              step={100}
+              defaultValue={[0, 5000]}
+              value={priceRange}
+              onValueChange={setPriceRange}
+            />
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import Signup from './pages/auth/Signup';
 import { AuthProvider } from './components/auth/AuthContext';
 import { Navbar } from './components/landing/Navbar';
 import { Footer } from './components/landing/Footer';
+import { CartProvider } from './components/products/CartContext';
 
 function AppContent() {
   const location = useLocation(); // Hook for location 
@@ -33,7 +34,9 @@ export default function App() {
   return (
     <Router>
       <AuthProvider>
-        <AppContent />
+        <CartProvider>
+          <AppContent />
+        </CartProvider>
       </AuthProvider>
     </Router>
   );

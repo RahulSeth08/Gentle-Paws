@@ -10,13 +10,13 @@ export function OrderSummary() {
       {
         name: "Premium Dog Food",
         description: "High-quality food for your dog.",
-        price: "$29.99",
+        price: "₹29.99",
         imgSrc: product1
       },
       {
         name: "Cat Treats",
         description: "Tasty treats for your feline friend.",
-        price: "$15.99",
+        price: "₹15.99",
         imgSrc: product2
       }
     ]
