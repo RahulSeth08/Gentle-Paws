@@ -17,9 +17,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-d1gn8w&3e3q&404v_m=w2xyp6h)y7$mf282^*k%yjr3_qys2ef'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["gentle-paws.onrender.com", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["gentle-paws.onrender.com"]
 
 
 # Application definition
@@ -56,6 +56,7 @@ FRONTEND_URL = env('frontend', default='http://localhost:5173')
 
 CORS_ALLOWED_ORIGINS = [
     FRONTEND_URL,
+    "https://gentle-paws-web.vercel.app/"
     "http://localhost:5173",  # Your frontend URL
     "http://127.0.0.1:5173",
 ]
