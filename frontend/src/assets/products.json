@@ -1,0 +1,154 @@
+[
+  {
+    "id": 1,
+    "name": "Dog Bed",
+    "description": "A comfortable bed for your dog.",
+    "price": 29.99,
+    "image": "/src/assets/product1.jpg",
+    "category": "Dog"
+  },
+  {
+    "id": 2,
+    "name": "Cat Climbing Tree",
+    "description": "A fun climbing tree for your cat.",
+    "price": 49.99,
+    "image": "/src/assets/product2.jpeg",
+    "category": "Cat"
+  },
+  {
+    "id": 3,
+    "name": "Bird Cage",
+    "description": "Spacious cage for your pet bird.",
+    "price": 39.99,
+    "image": "/src/assets/product3.jpg",
+    "category": "Bird"
+  },
+  {
+    "id": 4,
+    "name": "Rabbit Hutch",
+    "description": "A cozy hutch for your rabbit.",
+    "price": 59.99,
+    "image": "/src/assets/product4.jpg",
+    "category": "Rabbit"
+  },
+  {
+    "id": 5,
+    "name": "Dog Chew Toy",
+    "description": "Durable chew toy for dogs.",
+    "price": 9.99,
+    "image": "/src/assets/product5.jpg",
+    "category": "Dog"
+  },
+  {
+    "id": 6,
+    "name": "Cat Food Bowl",
+    "description": "Stainless steel food bowl for cats.",
+    "price": 7.99,
+    "image": "/src/assets/product6.jpeg",
+    "category": "Cat"
+  },
+  {
+    "id": 7,
+    "name": "Bird Feeder",
+    "description": "Outdoor bird feeder for wild birds.",
+    "price": 12.99,
+    "image": "/src/assets/product1.jpg",
+    "category": "Bird"
+  },
+  {
+    "id": 8,
+    "name": "Rabbit Chew Sticks",
+    "description": "Natural chew sticks for rabbits.",
+    "price": 5.99,
+    "image": "/src/assets/product2.jpeg",
+    "category": "Rabbit"
+  },
+  {
+    "id": 9,
+    "name": "Dog Collar",
+    "description": "Adjustable collar for dogs.",
+    "price": 14.99,
+    "image": "/src/assets/product3.jpg",
+    "category": "Dog"
+  },
+  {
+    "id": 10,
+    "name": "Cat Toy Mouse",
+    "description": "Interactive mouse toy for cats.",
+    "price": 4.99,
+    "image": "/src/assets/product4.jpg",
+    "category": "Cat"
+  },
+  {
+    "id": 11,
+    "name": "Bird Bath",
+    "description": "Plastic bird bath for cages.",
+    "price": 8.99,
+    "image": "/src/assets/product5.jpg",
+    "category": "Bird"
+  },
+  {
+    "id": 12,
+    "name": "Rabbit Water Bottle",
+    "description": "Leak-proof water bottle for rabbits.",
+    "price": 6.99,
+    "image": "/src/assets/product6.jpeg",
+    "category": "Rabbit"
+  },
+  {
+    "id": 13,
+    "name": "Dog Leash",
+    "description": "Strong nylon leash for dogs.",
+    "price": 11.99,
+    "image": "/src/assets/product1.jpg",
+    "category": "Dog"
+  },
+  {
+    "id": 14,
+    "name": "Cat Litter Box",
+    "description": "Easy-clean litter box for cats.",
+    "price": 19.99,
+    "image": "/src/assets/product2.jpeg",
+    "category": "Cat"
+  },
+  {
+    "id": 15,
+    "name": "Bird Swing",
+    "description": "Colorful swing for bird cages.",
+    "price": 6.49,
+    "image": "/src/assets/product3.jpg",
+    "category": "Bird"
+  },
+  {
+    "id": 16,
+    "name": "Rabbit Playpen",
+    "description": "Foldable playpen for rabbits.",
+    "price": 34.99,
+    "image": "/src/assets/product4.jpg",
+    "category": "Rabbit"
+  },
+  {
+    "id": 17,
+    "name": "Dog Shampoo",
+    "description": "Gentle shampoo for dogs.",
+    "price": 10.99,
+    "image": "/src/assets/product5.jpg",
+    "category": "Dog"
+  },
+  {
+    "id": 18,
+    "name": "Cat Grooming Brush",
+    "description": "Soft grooming brush for cats.",
+    "price": 8.49,
+    "image": "/src/assets/product6.jpeg",
+    "category": "Cat"
+  },
+  {
+    "id": 19,
+    "name": "Bird Seed Mix",
+    "description": "Nutritious seed mix for birds.",
+    "price": 7.49,
+    "image": "/src/assets/product1.jpg",
+    "category": "Bird"
+  }
+] 

@@ -1,13 +1,13 @@
 import Sidebar from '../components/products/Sidebar';
 import ProductList from '../components/products/ProductList';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import productsData from '../assets/products.json';
 
 export function Products() {
-  const API_URL = import.meta.env.VITE_API_URL;
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const API_URL = import.meta.env.VITE_API_URL;
+  const [products, setProducts] = useState(productsData);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   // Filter state
@@ -15,29 +15,6 @@ export function Products() {
   const [sort, setSort] = useState('price-asc');
   const [categories, setCategories] = useState([]); // array of selected categories
   const [priceRange, setPriceRange] = useState([0, 5000]);
-
-  // Fetch products from the API on component mount
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(`${API_URL}/products/list`);
-        if (Array.isArray(response.data)) {
-          setProducts(response.data);
-        } else if (Array.isArray(response.data.data)) {
-          setProducts(response.data.data);
-        } else if (Array.isArray(response.data.products)) {
-          setProducts(response.data.products);
-        } else {
-          throw new Error('Invalid response format, expected an array');
-        }
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to fetch products');
-        setLoading(false);
-      }
-    };
-    fetchProducts();
-  }, [API_URL]);
 
   // Filtering logic
   const filteredProducts = products
